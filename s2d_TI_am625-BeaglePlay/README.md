@@ -153,7 +153,7 @@ I have created the script on the target, which I execute to put the device into 
    The following TF-A patch is required to fix this.
    [TF-A Patch](https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/227996)
 
-2) During thaw, WiFi fails to come online.
+3) During thaw, WiFi fails to come online.
    I have debugged the issue, and it looks like, during freeze/suspend, WL_EN line is not put to low ‘0’ to power down the WiFi. 
    During restore, the WiFi driver tries to load the FW and fails.
    **Log:-**
@@ -193,16 +193,16 @@ Beagleboard.org, Texas Instruments, ARM, and
 Linux PM developers for great documents and training sessions which are freely available.
 
 1) **Kernel Recipes 2015** - Introduction to Kernel Power Management - by Kevin Hilman  
-   [Introduction to Kernel Power Management](https://www.youtube.com/watch?v=juJJZORgVwI)  
+   	[Introduction to Kernel Power Management](https://www.youtube.com/watch?v=juJJZORgVwI)  
 2) [generic-power-domains](https://baylibre.com/generic-power-domains/)  
 3) **_Hibernation_:-**  
-   [Suspend_and_hibernate](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate)  
+   	[Suspend_and_hibernate](https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate)  
 4) **_BKK19-TR02 - Linux Kernel Power Management - 101_:-**  
-   [Linux Kernel Power Management - 101](https://www.youtube.com/watch?v=lpzniFSLDqs&t=2214s)  
+   	[Linux Kernel Power Management - 101](https://www.youtube.com/watch?v=lpzniFSLDqs&t=2214s)  
 5) [linux_pm_challenges](https://blog.linuxplumbersconf.org/2017/ocw/system/presentations/4652/original/linux_pm_challenges.pdf)  
 6) **_BKK19-119 - Device power management and idle_:-**  
-   [Device power management and idle](https://www.youtube.com/watch?v=LaFartS_dv0&t=2472s)  
+   	[Device power management and idle](https://www.youtube.com/watch?v=LaFartS_dv0&t=2472s)  
 7) **_SWAP_:-**  
-   [SWAP](https://wiki.archlinux.org/title/Swap)
+   	[SWAP](https://wiki.archlinux.org/title/Swap)
 
 
