@@ -150,13 +150,13 @@ I have created the script on the target, which I execute to put the device into 
 
 **Issues:-**  
 1) There was an issue where Secondary/Non-boot CPUs were not coming online during thaw and restore.
-   The following TF-A patch is required to fix this.
+   The following TF-A patch is required to fix this.  
    [TF-A Patch](https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/227996)
 
 3) During thaw, WiFi fails to come online.
    I have debugged the issue, and it looks like, during freeze/suspend, WL_EN line is not put to low ‘0’ to power down the WiFi. 
-   During restore, the WiFi driver tries to load the FW and fails.
-   **Log:-**
+   During restore, the WiFi driver tries to load the FW and fails.  
+   **Log:-**  
    	[Log WiFi Thaw Failure](https://gist.github.com/sukrutb/8b02a9ffa7bd1cb9fb514220e9af097e)
 
 Per dts, the WL_EN pin, which goes to the WiFi chipset enable, is configured as Regulator, which is regulator-always-on.  
