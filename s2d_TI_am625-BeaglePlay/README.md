@@ -1,5 +1,7 @@
 # Suspend-to-Disk / Hibernation on TI’s AM625 Based BeaglePlay SBC
-![Hibernation](photos/tux-asleep.svg)
+![Hibernation](photos/tux-asleep.png)
+
+Image Reference - References:- 1)
 
 ## About
 This enables the support for Suspend to Disk/hibernation on AI64/AM62X.  
