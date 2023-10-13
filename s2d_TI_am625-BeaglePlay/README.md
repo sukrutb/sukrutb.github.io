@@ -1,7 +1,8 @@
 # Suspend-to-Disk / Hibernation on TI’s AM625 Based BeaglePlay SBC
+![Hibernation](photos/tux-asleep.svg)
 
 ## About
-This enables the support for Suspend to Disk/hibernation on AI64/AM62X.
+This enables the support for Suspend to Disk/hibernation on AI64/AM62X.  
 I did this project as an individual contributor with mentoring from Beagleboard.org and Texas Instruments Engineers.  
 Mentors:- Nishanth Menon, Dhruva Gole, Robert Nelson
 
@@ -153,7 +154,7 @@ I have created the script on the target, which I execute to put the device into 
    The following TF-A patch is required to fix this.  
    [TF-A Patch](https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/227996)
 
-3) During thaw, WiFi fails to come online.
+2) During thaw, WiFi fails to come online.
    I have debugged the issue, and it looks like, during freeze/suspend, WL_EN line is not put to low ‘0’ to power down the WiFi. 
    During restore, the WiFi driver tries to load the FW and fails.  
    **Log:-**  
