@@ -162,30 +162,16 @@ I have created the script on the target, which I execute to put the device into 
    **Log:-**  
    	[Log WiFi Thaw Failure](https://gist.github.com/sukrutb/8b02a9ffa7bd1cb9fb514220e9af097e)
 
-Per dts, the WL_EN pin, which goes to the WiFi chipset enable, is configured as Regulator, which is regulator-always-on.  
-So, this line doesn’t go low during suspend, and the WiFi chipset is not powered down.  
-To fix this, per my understanding. We need to configure it as regulator-off-in-suspend. With these changes, I don’t see any WiFi failure during thaw, i.e., firmware loading failure.
+   Per dts, the WL_EN pin, which goes to the WiFi chipset enable, is configured as Regulator, which is regulator-always-on.
+   So, this line doesn’t go low during suspend, and the WiFi chipset is not powered down.
+   To fix this, per my understanding. We need to configure it as regulator-off-in-suspend. With these changes, I don’t see any
+   WiFi failure during thaw, i.e., firmware loading failure.
 
-  **Patch**  
-  
-  =================
-  
-	  diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-	  index 7cfdf562b53b..a80888342446 100644
-	  --- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-	  +++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-	  @@ -109,7 +109,8 @@ wlan_en: regulator-3 {
-	                  regulator-min-microvolt = <1800000>;
-	                  regulator-max-microvolt = <1800000>;
-	                  enable-active-high;
-	  -               regulator-always-on;
-	  +               /regulator-always-on;/
-	  +               regulator-off-in-suspend;
-	                  vin-supply = <&vdd_3v3>;
-	                  gpio = <&main_gpio0 38 GPIO_ACTIVE_HIGH>;
-	                  pinctrl-names = "default";
-
-  =================  
+   **Patch**
+   =================
+   Posted following patch to the upstream to fix the WiFi issue
+   https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=a2a6bbd108da8dcbf378bc452ce0cf0e5b143f99
+   =================
   
 **Pending Items:-**  
 1) Need to validate with the swap partition on eMMC.
@@ -207,5 +193,3 @@ Linux PM developers for great documents and training sessions which are freely a
    	[Device power management and idle](https://www.youtube.com/watch?v=LaFartS_dv0&t=2472s)  
 7) **_SWAP_:-**  
    	[SWAP](https://wiki.archlinux.org/title/Swap)
-
-
