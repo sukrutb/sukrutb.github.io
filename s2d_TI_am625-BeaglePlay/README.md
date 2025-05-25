@@ -169,7 +169,7 @@ I have created the script on the target, which I execute to put the device into 
 
    **Patch**
    =================
-   Posted following patch to the upstream to fix the WiFi issue
+   Posted following patch to the upstream to fix the WiFi issue:
    https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/commit/?id=a2a6bbd108da8dcbf378bc452ce0cf0e5b143f99
    =================
   
